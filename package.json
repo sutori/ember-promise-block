@@ -1,7 +1,7 @@
 {
   "name": "ember-promise-block",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "0.0.1",
+  "description": "Component that shows a loader while a promise is pending.",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -38,7 +38,9 @@
     "ember-try": "~0.0.8"
   },
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "promise-block",
+    "promise"
   ],
   "dependencies": {
     "ember-cli-babel": "^5.1.5"
