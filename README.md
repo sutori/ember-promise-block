@@ -1,12 +1,18 @@
-# Ember-promise-block
+# ember-promise-block
 
 This README outlines the details of collaborating on this Ember addon.
 
-## Installation
+## Building yourself
 
 * `git clone` this repository
 * `npm install`
 * `bower install`
+
+## Installing
+
+Install as an Ember-CLI addon:
+
+  ember install ember-promise-block
 
 ## Running
 
