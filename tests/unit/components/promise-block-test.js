@@ -5,7 +5,7 @@ moduleForComponent('promise-block', 'Component - Promise block - Unit', {
   unit: true
 });
 
-test('Property - promiseContentAsArray', function() {
+test('Property - promiseContentAsArray', function(assert) {
   let content;
   let promise;
 
@@ -17,7 +17,7 @@ test('Property - promiseContentAsArray', function() {
     content: content
   });
   component.set('promise', promise);
-  deepEqual(component.get('promiseContentAsArray'), [content]);
+  assert.deepEqual(component.get('promiseContentAsArray'), [content]);
 
   // Is an array
   content = [Ember.Object.create()];
@@ -25,7 +25,7 @@ test('Property - promiseContentAsArray', function() {
     content: content
   });
   component.set('promise', promise);
-  equal(component.get('promiseContentAsArray'), content);
+  assert.equal(component.get('promiseContentAsArray'), content);
 
   // Is null
   content = null;
@@ -33,25 +33,25 @@ test('Property - promiseContentAsArray', function() {
     content: content
   });
   component.set('promise', promise);
-  deepEqual(component.get('promiseContentAsArray'), []);
+  assert.deepEqual(component.get('promiseContentAsArray'), []);
 });
 
-test('Property - promiseContentAlreadyLoadedOnce', function() {
+test('Property - promiseContentAlreadyLoadedOnce', function(assert) {
   const promiseContent = Ember.Object.create();
   const component = this.subject({
-    promiseContentAsArray: [promiseContent]
+    promiseContentAsArray: Ember.A([promiseContent])
   });
 
-  ok(component.get('promiseContentAlreadyLoadedOnce'));
+  assert.ok(component.get('promiseContentAlreadyLoadedOnce'));
 
   // is empty
   promiseContent.set('isEmpty', true);
-  ok(! component.get('promiseContentAlreadyLoadedOnce'));
+  assert.ok(! component.get('promiseContentAlreadyLoadedOnce'));
   promiseContent.set('isEmpty', false);
 
   // is loading
   promiseContent.set('isLoading', true);
-  ok(! component.get('promiseContentAlreadyLoadedOnce'));
+  assert.ok(! component.get('promiseContentAlreadyLoadedOnce'));
   promiseContent.set('isLoading', false);
 
   // is empty but reloading
@@ -59,10 +59,10 @@ test('Property - promiseContentAlreadyLoadedOnce', function() {
     isEmpty: true,
     isReloading: true
   });
-  ok(component.get('promiseContentAlreadyLoadedOnce'));
+  assert.ok(component.get('promiseContentAlreadyLoadedOnce'));
 });
 
-test('Property - readyToShowContent', function() {
+test('Property - readyToShowContent', function(assert) {
   const promise = Ember.Object.create();
   const component = this.subject({
     promise: promise
@@ -70,27 +70,27 @@ test('Property - readyToShowContent', function() {
 
   component.set('promiseContentAlreadyLoadedOnce', false);
   promise.set('isFulfilled', false);
-  ok(! component.get('readyToShowContent'));
+  assert.ok(! component.get('readyToShowContent'));
 
   component.set('promiseContentAlreadyLoadedOnce', true);
   promise.set('isFulfilled', false);
-  ok(component.get('readyToShowContent'));
+  assert.ok(component.get('readyToShowContent'));
 
   component.set('promiseContentAlreadyLoadedOnce', false);
   promise.set('isFulfilled', true);
-  ok(component.get('readyToShowContent'));
+  assert.ok(component.get('readyToShowContent'));
 
   component.set('promiseContentAlreadyLoadedOnce', true);
   promise.set('isFulfilled', true);
-  ok(component.get('readyToShowContent'));
+  assert.ok(component.get('readyToShowContent'));
 });
 
-test('Property - pendingPromise', function() {
+test('Property - pendingPromise', function(assert) {
   const component = this.subject();
 
   component.set('readyToShowContent', false);
-  ok(component.get('pendingPromise'));
+  assert.ok(component.get('pendingPromise'));
 
   component.set('readyToShowContent', true);
-  ok(! component.get('pendingPromise'));
+  assert.ok(! component.get('pendingPromise'));
 });

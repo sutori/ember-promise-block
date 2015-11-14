@@ -1,6 +1,7 @@
 import { test, moduleForComponent } from 'ember-qunit';
 import Ember from 'ember';
-import startApp from 'frontend/tests/helpers/start-app';
+import startApp from '../../helpers/start-app';
+import hbs from 'htmlbars-inline-precompile';
 
 let App;
 
@@ -14,47 +15,47 @@ moduleForComponent('promise-block', 'Component - Promise block - Integration', {
   }
 });
 
-test('Pending', function() {
+test('Pending', function(assert) {
   this.set('promise', Ember.Object.create({
     isPending: true
   }));
 
-  this.render(Ember.HTMLBars.compile(`
+  this.render(hbs`
     {{promise-block promise=promise}}
-  `));
+  `);
 
-  ok(exists('.promise-block.is-pending'), "Adds the 'is-pending' class");
-  ok(exists('.loader'), "Shows the loader");
+  assert.ok(!!find('.promise-block.is-pending').length, "Adds the 'is-pending' class");
+  assert.ok(!!find('.loader').length, "Shows the loader");
 });
 
-test('Fulfilled', function() {
+test('Fulfilled', function(assert) {
   this.set('promise', Ember.Object.create({
     isFulfilled: true
   }));
 
-  this.render(Ember.HTMLBars.compile(`
+  this.render(hbs`
     {{#promise-block promise=promise}}
       <p class="content">The content</p>
     {{/promise-block}}
-  `));
+  `);
 
-  ok(notExists('.promise-block.is-pending'), "Does not add the 'is-pending' class");
-  ok(notExists('.loader'), "Does not show the loader");
-  ok(exists('.content'), "Shows the content");
+  assert.ok(!find('.promise-block.is-pending').length, "Does not add the 'is-pending' class");
+  assert.ok(!find('.loader').length, "Does not show the loader");
+  assert.ok(!!find('.content').length, "Shows the content");
 });
 
-test('Promise content already loaded', function() {
+test('Promise content already loaded', function(assert) {
   this.set('promise', Ember.Object.create({
     content: Ember.Object.create()
   }));
 
-  this.render(Ember.HTMLBars.compile(`
+  this.render(hbs`
     {{#promise-block promise=promise}}
       <p class="content">The content</p>
     {{/promise-block}}
-  `));
+  `);
 
-  ok(notExists('.promise-block.is-pending'), "Does not add the 'is-pending' class");
-  ok(notExists('.loader'), "Does not show the loader");
-  ok(exists('.content'), "Shows the content");
+  assert.ok(!find('.promise-block.is-pending').length, "Does not add the 'is-pending' class");
+  assert.ok(!find('.loader').length, "Does not show the loader");
+  assert.ok(!!find('.content').length, "Shows the content");
 });
