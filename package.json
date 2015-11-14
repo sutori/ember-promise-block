@@ -11,7 +11,7 @@
     "start": "ember server",
     "test": "ember try:testall"
   },
-  "repository": "https://github.com/Hstry/ember-promise-block",
+  "repository": "https://github.com/hstry/ember-promise-block",
   "engines": {
     "node": ">= 0.10.0"
   },
