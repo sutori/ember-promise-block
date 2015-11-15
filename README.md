@@ -23,7 +23,7 @@ Install as an Ember-CLI addon:
       {{/each}}
     {{/promise-block}}
 
-The component will show the partial in `loaderTemplate` while `promise` is not resolved. It then shows the block when it resolves.
+The component will show the partial in `loaderTemplate` while `promise` is not resolved. It then shows the block when it resolves. The default value for `loaderTemplate` is `helpers/loader`.
 
 Example controller:
 
