@@ -1,12 +1,6 @@
 # ember-promise-block
 
-This README outlines the details of collaborating on this Ember addon.
-
-## Building yourself
-
-* `git clone` this repository
-* `npm install`
-* `bower install`
+This is an Ember Addon that exposes a component `promise-block` which shows a loader while a given promise is being resolved. 
 
 ## Installing
 
@@ -45,6 +39,12 @@ Example model:
     export default DS.Model.extend({
       title: DS.attr('string')
     });
+    
+## Building yourself
+
+* `git clone` this repository
+* `npm install`
+* `bower install`
     
 ## Running Tests
 
