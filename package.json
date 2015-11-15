@@ -1,6 +1,6 @@
 {
   "name": "ember-promise-block",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Component that shows a loader while a promise is pending.",
   "directories": {
     "doc": "doc",
