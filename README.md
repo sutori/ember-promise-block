@@ -39,6 +39,11 @@ Example model:
     export default DS.Model.extend({
       title: DS.attr('string')
     });
+    
+## Example
+Below is a (fast) example of what the addon does. The loader is displayed until the data is loaded, i.e. the Promise gets resolved.
+
+![ember-promise-block behavior](https://cloud.githubusercontent.com/assets/1374412/12704008/f7855f08-c82f-11e5-9ce3-13794f4664fa.gif)
 
 ## Building yourself
 
