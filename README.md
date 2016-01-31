@@ -1,6 +1,6 @@
 # ember-promise-block
 
-This is an Ember Addon that exposes a component `promise-block` which shows a loader while a given promise is being resolved. 
+This is an Ember Addon that exposes a component `promise-block` which shows a loader while a given promise is being resolved.
 
 ## Installing
 
@@ -35,17 +35,17 @@ Example model:
 
     // models/post.js
     import DS from 'ember-data';
-    
+
     export default DS.Model.extend({
       title: DS.attr('string')
     });
-    
+
 ## Building yourself
 
 * `git clone` this repository
 * `npm install`
 * `bower install`
-    
+
 ## Running Tests
 
 * `npm test` (Runs `ember try:testall` to test your addon against multiple Ember versions)
